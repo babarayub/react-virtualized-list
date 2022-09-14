@@ -1,6 +1,10 @@
+/** @jsxImportSource @emotion/react */
 export const VirtualizedList = () => {
 	return (
-		<></>
+		<div>
+			<ActionBar />
+			<List />
+		</div>
 	);
 };
 
