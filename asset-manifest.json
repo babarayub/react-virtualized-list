@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/react-virtualized-list/static/js/main.b7aa35bf.js",
+    "static/js/787.5a306349.chunk.js": "/react-virtualized-list/static/js/787.5a306349.chunk.js",
+    "index.html": "/react-virtualized-list/index.html",
+    "main.b7aa35bf.js.map": "/react-virtualized-list/static/js/main.b7aa35bf.js.map",
+    "787.5a306349.chunk.js.map": "/react-virtualized-list/static/js/787.5a306349.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.b7aa35bf.js"
+  ]
+}
