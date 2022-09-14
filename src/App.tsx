@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { Global, css } from "@emotion/react";
-import { Demo } from "./components/virtualized-list/VirtualizedList";
+import { Container } from "./components/Container";
 
 function App() {
 	return (
@@ -33,7 +33,7 @@ function App() {
 					backgroundColor: "white",
 				}}
 			>
-				<Demo />
+				<Container />
 			</div>
 		</div>
 	);
