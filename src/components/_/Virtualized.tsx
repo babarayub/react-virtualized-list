@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { useState, useMemo, cloneElement } from "react";
-import { useElementHeight } from "./helpers";
+import { useElementSize } from "./helpers";
 
 const BUFFERED_ITEMS = 0;
 
@@ -12,12 +12,12 @@ export const Virtualized = ({
 	rowHeight?: number;
 	children: Array<JSX.Element>;
 }) => {
-	const { setRef: containerRef, height: containerHeight = 0 } =
-		useElementHeight();
+	const { setRef: containerRef, size} =
+	useElementSize();
 	const [position, setPosition] = useState(0);
-
 	const elements = useMemo(() => {
 		const from = Math.max(Math.floor(position / rowHeight) - BUFFERED_ITEMS, 0);
+		const {height: containerHeight} = size;
 		const to = Math.min(
 			Math.ceil((position + containerHeight) / rowHeight - 1) + BUFFERED_ITEMS,
 			children.length - 1
@@ -33,7 +33,7 @@ export const Virtualized = ({
 				},
 			})
 		);
-	}, [children, containerHeight, rowHeight, position]);
+	}, [children, size, rowHeight, position]);
 
 	const onScroll = useMemo(
 		() => (e: any) => {
