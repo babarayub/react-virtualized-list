@@ -1,23 +1,10 @@
 import { css } from "@emotion/react";
-import { useCallback, useEffect, useLayoutEffect, useState } from "react";
+import { useCallback, useLayoutEffect, useState } from "react";
 export type Item = {
 	id: number;
 	item: string;
 	desc: string;
 	price: string;
-};
-
-export const useDebounce = <T>(value: T, delay: number): T => {
-	const [debouncedValue, setDebouncedValue] = useState<T>(value);
-	useEffect(() => {
-		const handler = setTimeout(() => {
-			setDebouncedValue(value);
-		}, delay);
-		return () => {
-			clearTimeout(handler);
-		};
-	}, [value, delay]);
-	return debouncedValue;
 };
 
 export const useElementSize = () => {

@@ -1,5 +1,5 @@
 /** @jsxImportSource @emotion/react */
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import { ActionBar } from "./_/ActionBar";
 import { generateDummyData, Item, listBorderStyle } from "./_/helpers";
 import { ListItem } from "./_/ListItem";
@@ -7,8 +7,7 @@ import { Virtualized } from "./_/Virtualized";
 
 const DATA = generateDummyData();
 export const Container = () => {
-
-  const [data, setData] = useState<Item[]>(DATA)
+	const [data, setData] = useState<Item[]>(DATA);
 	return (
 		<div
 			css={{
@@ -18,14 +17,19 @@ export const Container = () => {
 				padding: "0rem 4rem",
 			}}
 		>
-			<ActionBar click={() => {
-        setData([...data, {
-          id: data.length +1,
-          item: `Item ${data.length +1}`,
-          desc: `item ${data.length +1} description`,
-          price: `item ${data.length +1} price`,
-        }])
-      }} />
+			<ActionBar
+				click={() => {
+					setData([
+						...data,
+						{
+							id: data.length + 1,
+							item: `Item ${data.length + 1}`,
+							desc: `item ${data.length + 1} description`,
+							price: `item ${data.length + 1} price`,
+						},
+					]);
+				}}
+			/>
 			<div
 				css={[
 					listBorderStyle,
@@ -40,7 +44,12 @@ export const Container = () => {
 				<div css={{ width: "calc(100% - 15px)" }}>
 					<ListItem
 						isHeader
-						data={{ id: 0,item: "Column 1", desc: "Column 2", price: "Column 3" }}
+						data={{
+							id: 0,
+							item: "Column 1",
+							desc: "Column 2",
+							price: "Column 3",
+						}}
 					/>
 				</div>
 
@@ -54,9 +63,8 @@ export const Container = () => {
 	);
 };
 
-
-export const VirtualizedList = ({data}:{data: Item[]}) => {
-	return (
+export const VirtualizedList = ({ data }: { data: Item[] }) => (
+	<div css={{ height: "100%", width: "100%" }}>
 		<Virtualized rowHeight={60}>
 			{data.map((row) => (
 				<div key={row.id} css={{ width: "100%" }}>
@@ -64,5 +72,5 @@ export const VirtualizedList = ({data}:{data: Item[]}) => {
 				</div>
 			))}
 		</Virtualized>
-	);
-};
+	</div>
+);
